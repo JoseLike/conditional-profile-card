@@ -29,20 +29,28 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  let apellido = variables.lastname == null ? `` : `${variables.lastname}`;
-
-  let nombre =
-    variables.name == null
-      ? `<h1>Seleccione nombre</h1>`
-      : `<h1>${variables.name}</h1>`;
+  let nombrecompleto = `<h1>
+      ${variables.name} ${variables.lastname}
+    </h1>`;
+  if (variables.name == null && variables.lastname == null)
+    `<h1>Seleccione nombre</h1>`;
+  else if (variables.name != null && variables.lastname == null)
+    nombrecompleto = `<h1>${variables.name}</h1>`;
+  else if (variables.name == null && variables.lastname != null)
+    nombrecompleto = `<h1>${variables.lastname}</h1>`;
 
   let puesto =
     variables.role == null ? `<h2></h2>` : `<h2>${variables.role}</h2>`;
 
-  let localizacion =
-    variables.city == null && variables.country == null
-      ? `<h3>Seleccione nombre</h3>`
-      : `<h3>${variables.city},${variables.country}</h3>`;
+  let localizacion = `<h3>
+      ${variables.city},${variables.country}
+    </h3>`;
+  if (variables.city == null && variables.country == null)
+    localizacion = `<h3></h3>`;
+  else if (variables.city != null && variables.country == null)
+    localizacion = `<h3>${variables.city}</h3>`;
+  else if (variables.city == null && variables.country != null)
+    localizacion = `<h3>${variables.country}</h3>`;
 
   let posicion =
     variables.socialMediaPosition == "position-left"
@@ -58,7 +66,7 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-            ${nombre}
+            ${nombrecompleto}
             ${puesto}
             ${localizacion}
           <ul ${posicion}>
