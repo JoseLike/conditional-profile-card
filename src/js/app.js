@@ -33,7 +33,7 @@ function render(variables = {}) {
       ${variables.name} ${variables.lastname}
     </h1>`;
   if (variables.name == null && variables.lastname == null)
-    `<h1>Seleccione nombre</h1>`;
+    nombrecompleto = `<h1>Seleccione nombre</h1>`;
   else if (variables.name != null && variables.lastname == null)
     nombrecompleto = `<h1>${variables.name}</h1>`;
   else if (variables.name == null && variables.lastname != null)
