@@ -70,10 +70,10 @@ function render(variables = {}) {
             ${puesto}
             ${localizacion}
           <ul ${posicion}>
-            <li><a href=${atwitter}><i class="fab fa-twitter"></i></a></li>
-            <li><a href=${agithub}><i class="fab fa-github"></i></a></li>
-            <li><a href=${alinkedin}><i class="fab fa-linkedin"></i></a></li>
-            <li><a href=${ainstagram}><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/${atwitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${agithub}"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/${alinkedin}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/${ainstagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
