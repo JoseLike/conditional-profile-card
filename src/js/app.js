@@ -57,10 +57,10 @@ function render(variables = {}) {
       ? `class="position-left"`
       : `class="position-right"`;
 
-  let atwitter = variables.twitter;
-  let agithub = variables.github;
-  let alinkedin = variables.linkedin;
-  let ainstagram = variables.instagram;
+  const atwitter = variables.twitter == null ? `` : variables.twitter;
+  const agithub = variables.github == null ? `` : variables.github;
+  const alinkedin = variables.linkedin == null ? `` : variables.linkedin;
+  const ainstagram = variables.instagram == null ? `` : variables.instagram;
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
@@ -70,10 +70,10 @@ function render(variables = {}) {
             ${puesto}
             ${localizacion}
           <ul ${posicion}>
-            <li><a href="https://twitter.com/${atwitter}"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/${agithub}"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/${alinkedin}"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://www.instagram.com/${ainstagram}"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/${atwitter}"><i class="fab fa-twitter">${atwitter}</i></a></li>
+            <li><a href="https://github.com/${agithub}"><i class="fab fa-github">${agithub}</i></a></li>
+            <li><a href="https://www.linkedin.com/in/${alinkedin}"><i class="fab fa-linkedin">${alinkedin}</i></a></li>
+            <li><a href="https://www.instagram.com/${ainstagram}"><i class="fab fa-instagram">${ainstagram}</i></a></li>
           </ul>
         </div>
     `;
